@@ -1,0 +1,23 @@
+{
+
+    // Run "npm run cf-typegen" after changes in this file
+
+    "name": "worker-name",
+    "main": "index.ts",
+    "compatibility_date": "2025-04-27",
+    "compatibility_flags": [
+        "nodejs_compat"
+    ],
+    "assets": {
+        "directory": "./Client/dist",
+        "binding": "ASSETS"
+      },
+    "durable_objects": {
+        "bindings": [
+          { "name": "DURABLE_OBJECT", "class_name": "DurableObject" }
+        ]
+    },
+    "migrations": [
+        { "tag": "v1", "new_classes": ["DurableObject"] }
+    ]
+}

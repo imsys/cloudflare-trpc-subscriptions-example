@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"lib": ["ESNext"],
+		"isolatedModules": true,
+		"noEmit": true,
+		"allowJs": true,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"jsx": "react",
+		"types": ["@cloudflare/workers-types"]
+	},
+	"include": [
+	"*.ts",
+    "**/*.{ts,tsx}"
+  ]
+}

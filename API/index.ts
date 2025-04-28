@@ -1,36 +1,33 @@
 import { zValidator } from "@hono/zod-validator";
 import * as Hono from "hono";
-import { cors } from "hono/cors";
+import { cors } from "hono/cors"; // Keep cors if used within defined routes
 
-import { config, DurableObject, Env, Fetch } from "~/Server";
+// Import types needed for the define helper signature
+import type { DurableObject } from "../DurableObject";
 
-export type API = ReturnType<typeof API.create>;
+// Define a type for the Hono instance expected by API definitions
+// Adjust generic if necessary based on your context/bindings usage in routes
+export type HonoApp = Hono.Hono<{ Bindings: Env }>;
+
+// Define a type for the helpers passed to API definition functions
+export type ApiDefinitionHelpers = {
+  api: HonoApp;
+  validate: typeof zValidator;
+  durableObject: DurableObject;
+};
+
+// Type alias for the function signature returned by API.define
+export type RouteDefinition = (helpers: ApiDefinitionHelpers) => void;
+
 export namespace API {
-  export const basePath = () => "/api" as const;
+  export const basePath = "/api";
 
-  export const create = (durableObject: DurableObject) => {
-    const api = new Hono.Hono<{ Bindings: Env }>().basePath("/api");
+  export const define = (defineFn: RouteDefinition) => defineFn;
 
-    api.use("*", cors());
-    config().api.forEach((define) => define({ api, validate, durableObject }));
+  export const validate = zValidator;
 
-    return api;
-  };
-
-  export const define = (
-    define: (helpers: {
-      api: API;
-      validate: typeof validate;
-      durableObject: DurableObject;
-    }) => void
-  ) => define;
-
-  export const validate = lazyFn(() => zValidator);
-
-  export const fetch =
-    (durableObject: DurableObject): Fetch.WithoutContext =>
-    async (request, env) => {
-      if (!new URL(request.url).pathname.startsWith(basePath())) return;
-      return await create(durableObject).fetch(request, env);
-    };
 }
+
+const basePath = API.basePath
+
+export { basePath };
