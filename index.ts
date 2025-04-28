@@ -1,6 +1,5 @@
 import { API, RouteDefinition } from "./API";
 import { DurableObject } from "./DurableObject";
-// import { Env } from "./Env";
 import { Exception } from "./Exception";
 import { Sandbox } from "./Sandbox";
 

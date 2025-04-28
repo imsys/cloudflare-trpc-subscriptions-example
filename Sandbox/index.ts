@@ -2,6 +2,8 @@ import { API } from "../API";
 import { define as TRPCDefine } from "../TRPC/defs";
 
 export namespace Sandbox {
+
+  // Endpoint at /api/trpc
   export const trpc = () => // This function acts as a router factory
     TRPCDefine((t) =>
       t.router({
@@ -34,6 +36,7 @@ export namespace Sandbox {
       })
     );
 
+  // Endpoint at /api/sandbox
   export const api = () =>
     API.define(({ api }) =>
       api.get("/sandbox", async (context) =>
