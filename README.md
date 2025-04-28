@@ -1,7 +1,7 @@
 
 Fork from [cruhl/cloudflare-trpc-subscriptions-example](https://github.com/cruhl/cloudflare-trpc-subscriptions-example).
 
-This is an example of using Hono and TRPC on Cloudflare Durable Objects using the Websockets Hyber Hibernation API.
+This is an example of using Hono and TRPC on Cloudflare Durable Objects using the Websockets Hibernation API.
 
 I tried to simplify the code, and make it "just run" with TRPC v11.
 
