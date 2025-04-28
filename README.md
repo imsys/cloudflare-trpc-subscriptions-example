@@ -13,6 +13,8 @@ The changes were done mostly by Gemini. There is still a lot of things that coul
 
 2. `npm run cf-typegen` after each change in `wrangler.jsonc`
 
+3. Ctrl+Shift+P -> `typescript.restartTsServer` - Restart TypeScript Server if necessary
+
 3. `npm run build` to build the client html and js.
 
 4. `npm run dev` to do a local test.
