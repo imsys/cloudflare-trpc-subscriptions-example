@@ -29,6 +29,13 @@ export class DurableObject {
     this.api = new Hono<{ Bindings: Env }>().basePath(ApiHelpers.basePath);
     this.api.use('*', cors());
 
+    // Register API routes from the imported factories
+    apiHandlerFactories.forEach((defineApiRoute: RouteDefinition) => {
+      defineApiRoute({
+        api: this.api,
+        durableObject: this
+      });
+    });
     // --- End Hono App Initialization ---
   }
 
