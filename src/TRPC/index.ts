@@ -1,11 +1,11 @@
 import { trpcServer } from "@hono/trpc-server";
 import { AnyRouter } from "@trpc/server";
 
-import { API } from "../API";
+import { API } from "../api";
 
 import { TRPCSubObservable,  TRPCSubObserver } from "./defs";
 
-import { WebSocket } from "./WebSocket";
+import { WebSocket } from "./websocket";
 
 export { WebSocket };
 

@@ -1,7 +1,7 @@
 import * as Hono from "hono";
 
 // Import types needed for the define helper signature
-import type { DurableObject } from "../DurableObject";
+import type { DurableObject } from "./durableObject";
 
 // Define a type for the Hono instance expected by API definitions
 // Adjust generic if necessary based on your context/bindings usage in routes

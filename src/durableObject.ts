@@ -1,15 +1,15 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 
-import { Exception } from "../Exception";
+import { Exception } from "./exception";
 
 import {
   TRPCWebSocket,
   apiHandlerFactories,
   rootTrpcRouter
-} from "..";
+} from "./";
 
-import { RouteDefinition, API as ApiHelpers } from "../API";
+import { RouteDefinition, API as ApiHelpers } from "./api";
 
 
 export class DurableObject {

@@ -4,8 +4,8 @@ import * as TRPCServerObservable from "@trpc/server/observable";
 import * as TRPCServerRPC from "@trpc/server/rpc";
 import * as TRPCUtilities from "@trpc/server/shared";
 
-import { Context } from "../defs";
-import { DurableObject } from "../../";
+import { Context } from "./defs";
+import { DurableObject } from "../";
 
 export namespace WebSocket {
   type ID = string;
