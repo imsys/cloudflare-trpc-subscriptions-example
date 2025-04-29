@@ -9,7 +9,7 @@
         "nodejs_compat"
     ],
     "assets": {
-        "directory": "./src/Client/dist",
+        "directory": "./src/client/dist",
         "binding": "ASSETS"
       },
     "durable_objects": {
