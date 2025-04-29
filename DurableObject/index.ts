@@ -29,14 +29,6 @@ export class DurableObject {
     this.api = new Hono<{ Bindings: Env }>().basePath(ApiHelpers.basePath);
     this.api.use('*', cors());
 
-    // Register API routes from the imported factories
-    apiHandlerFactories.forEach((defineApiRoute: RouteDefinition) => {
-      defineApiRoute({
-        api: this.api,
-        validate: ApiHelpers.validate,
-        durableObject: this
-      });
-    });
     // --- End Hono App Initialization ---
   }
 
@@ -105,6 +97,8 @@ export namespace DurableObject {
       // Pass context (ctx) if the stub fetch signature allows/requires it
       // Note: Standard DO stub fetch doesn't take ctx. ExecutionContext is handled
       // by the main worker fetch handler wrapping this call.
+
+      // Initiate DO Constructor on first run, and then runs the DO fetch().
       const response = await stub.fetch(request);
 
       // Check the response from the DO instance
