@@ -9,7 +9,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         // Entry point for the client build
-        main: './Client/index.html', // Use index.html as the entry point
+        main: './src/Client/index.html', // Use index.html as the entry point
       },
     },
     // Generate sourcemaps for easier debugging
@@ -18,7 +18,7 @@ export default defineConfig({
     emptyOutDir: true,
   },
   // Define the root of your client source code
-  root: 'Client',
+  root: 'src/Client',
   // Adjust base for correct asset loading if served from a subpath
   base: '/',
   // Configuration for the dev server (optional, as wrangler dev is used)
