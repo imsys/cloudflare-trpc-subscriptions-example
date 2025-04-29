@@ -1,7 +1,7 @@
 import { API, RouteDefinition } from "./api";
 import { DurableObject } from "./durableObject";
 import { Exception } from "./exception";
-import { Sandbox } from "./sandbox";
+import { Sandbox } from "./routes/sandbox";
 
 
 import { merge as mergeRouters } from './TRPC/defs';

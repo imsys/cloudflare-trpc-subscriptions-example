@@ -1,5 +1,5 @@
-import { API } from "./api";
-import { define as TRPCDefine } from "./TRPC/defs";
+import { API } from "./../api";
+import { define as TRPCDefine } from "../TRPC/defs";
 
 export namespace Sandbox {
 
