@@ -4,7 +4,7 @@ import { createTRPCClient, createWSClient, wsLink } from '@trpc/client';
 import type { AppRouter } from '../'; // Adjust path if needed
 import { SuperJSON } from "superjson";
 
-import { basePath } from "../API";
+import { basePath } from "../api";
 
 // Function to get the WebSocket URL based on the current page's protocol and host
 function getWebSocketUrl(): string {
