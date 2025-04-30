@@ -1,5 +1,5 @@
 import { API, RouteDefinition } from "./api";
-import { DurableObject } from "./durableObject";
+import { MyDurableObject } from "./durableObject";
 import { Exception } from "./exception";
 import { Sandbox } from "./routes/sandbox";
 
@@ -48,7 +48,7 @@ export const apiHandlerFactories: RouteDefinition[] = [
 
 export {
   API,
-  DurableObject,
+  MyDurableObject,
   TRPCWebSocket
 };
 
@@ -60,7 +60,7 @@ export default {
       async () =>
         // Ensure DurableObject.fetch is correctly configured to use the
         // merged router (rootTrpcRouter) or the apiHandlerFactories
-        (await DurableObject.fetch(request, env, context))
+        (await MyDurableObject.fetch(request, env, context))
         // Alternative handlers (Asset, SPA) if applicable
     )) as ExportedHandlerFetchHandler
 };

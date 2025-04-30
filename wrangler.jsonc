@@ -4,7 +4,7 @@
 
     "name": "worker-name",
     "main": "src/index.ts",
-    "compatibility_date": "2025-04-27",
+    "compatibility_date": "2025-04-24",
     "compatibility_flags": [
         "nodejs_compat"
     ],
@@ -14,10 +14,10 @@
       },
     "durable_objects": {
         "bindings": [
-          { "name": "DURABLE_OBJECT", "class_name": "DurableObject" }
+          { "name": "DURABLE_OBJECT", "class_name": "MyDurableObject" }
         ]
     },
     "migrations": [
-        { "tag": "v1", "new_classes": ["DurableObject"] }
+        { "tag": "v1", "new_classes": ["MyDurableObject"] }
     ]
 }

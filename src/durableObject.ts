@@ -11,16 +11,21 @@ import {
 
 import { RouteDefinition, API as ApiHelpers } from "./api";
 
+import { DurableObject } from "cloudflare:workers";
 
-export class DurableObject {
+export class MyDurableObject extends DurableObject<Env> {
 
   private readonly trpcWebSocketState: TRPCWebSocket.State;
   private readonly api: Hono<{ Bindings: Env }>;
 
-  constructor(public state: DurableObjectState, private env: Env) {
+  // The constructor signature changes slightly when extending
+  // The base class constructor needs DurableObjectState and Env
+  constructor(ctx: DurableObjectState, env: Env) {
+    super(ctx, env); // Call the super constructor
+
     // Initialize WebSocket state using the imported TRPCWebSocket
     this.trpcWebSocketState = TRPCWebSocket.State.create({
-      env,
+      env: this.env, // Use this.env inherited from base class
       durableObject: this,
       router: rootTrpcRouter,
     });
@@ -82,7 +87,7 @@ export class DurableObject {
 
 }
 
-export namespace DurableObject {
+export namespace MyDurableObject {
 
   export const fetch = (async (request, env:Cloudflare.Env, ctx) : Promise<Response> => {
     if (request.method === "OPTIONS") {

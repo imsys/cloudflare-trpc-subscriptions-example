@@ -5,13 +5,14 @@ import {
 	Observer as TRPCObserver,
 } from "@trpc/server/observable";
 import { SuperJSON } from "superjson";
+import { DurableObject } from "cloudflare:workers";
 
 // Export core types with renamed aliases
 export { type TRPCObservable as TRPCSubObservable, type TRPCObserver as TRPCSubObserver }; // <-- Renamed here
 
 export type Context = {
   env: Env;
-  durableObject: DurableObject;
+  durableObject: DurableObject<Env>;
 };
 
 // Initialize tRPC - this is the core instance
